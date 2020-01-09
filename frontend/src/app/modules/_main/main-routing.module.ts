@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'users'
+        redirectTo: 'jobs'
       },
       {
         path: 'jobs',
