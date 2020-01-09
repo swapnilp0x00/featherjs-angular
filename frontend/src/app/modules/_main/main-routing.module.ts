@@ -8,16 +8,16 @@ const routes: Routes = [
     component: MainComponent,       // Used as a layout
     children: [
       {
-        path: '',
-        redirectTo: 'jobs'
-      },
-      {
         path: 'jobs',
         loadChildren: () => import('../job/job.module').then(m => m.JobModule)
       },
       {
         path: 'users',
         loadChildren: () => import('../user/user.module').then(m => m.UserModule)
+      },
+      {
+        path: '',
+        redirectTo: 'jobs'
       }
     ]
   }
