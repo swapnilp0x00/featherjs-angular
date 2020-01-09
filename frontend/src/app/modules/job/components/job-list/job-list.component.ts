@@ -3,7 +3,7 @@ import { FeathersService } from 'src/app/shared/feathers.service';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Service } from '@feathersjs/feathers';
-interface JobModel {
+export interface JobModel {
   id?: number;
   title: string;
   description?: string;
@@ -43,9 +43,4 @@ export class JobListComponent implements OnInit {
       });
     }
   }
-
-  openJobForm() {
-    
-  }
-
 }

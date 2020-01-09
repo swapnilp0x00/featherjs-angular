@@ -8,10 +8,10 @@ const routes: Routes = [{
   path: '',
   component: JobListComponent,
   }, {
-  path: ':id',
+  path: 'create',
   component: JobFormComponent
-  },{
-    path: 'create',
+  }, {
+    path: ':id',
     component: JobFormComponent
   }
 ];
