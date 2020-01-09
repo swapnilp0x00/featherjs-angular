@@ -1,3 +1,6 @@
+
+
+<button type="button" [routerLink]="['create']"> Create Job</button>
 <table>
     <thead>
         <tr>
@@ -17,8 +20,8 @@
             <td>{{job.description}}</td>
             <td>{{job.createdAt | date: 'm/d/yy'}}</td>
             <td>{{job.updatedAt | date: 'm/d/yy'}}</td>
-            <td><button>Edit</button></td>
-            <td><button>Delete</button></td>
+            <td><button type="button" [routerLink]="[job.id]">Edit</button></td>
+            <td><button type="button" (click)="deleteJob(job)">Delete</button></td>
         </tr>
     </tbody>
 </table>
