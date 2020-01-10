@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { JobListComponent } from './components/job-list/job-list.component';
-import { JobFormComponent } from './components/job-form/job-form.component';
+import { JobListComponent } from './job-list/job-list.component';
+import { JobFormComponent } from './job-form/job-form.component';
 
 
 const routes: Routes = [{
