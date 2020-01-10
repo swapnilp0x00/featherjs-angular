@@ -18,6 +18,7 @@ export class JobListComponent implements OnInit {
 
   jobList$: Observable<any>;
   jobService: Service<JobModel>;
+
   constructor(private featherService: FeathersService) {
   }
 
@@ -26,12 +27,20 @@ export class JobListComponent implements OnInit {
     this.fetchAll();
   }
 
+  /**
+   * fetchAll - Used to set observable for all records before component is rendered.
+   * TODO: Can also be set in resolver for better UX.
+   */
   fetchAll() {
     this.jobList$ = from(this.jobService.find()).pipe(
       map((response: any) => response.data)
     );
   }
 
+  /**
+   * deleteJob - Asks for delete confirmation and then deletes job after confirmation.
+   * @param job - job to be deleted.
+   */
   deleteJob(job: JobModel) {
     const response = confirm('Are you sure you want to delete this');
     if (response) {
