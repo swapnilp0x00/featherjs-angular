@@ -34,11 +34,13 @@ export class JobFormComponent implements OnInit {
   }
 
 
-
+  /**
+   * onSubmit - Called when form is submiited, used to send create/patch call
+   */
   onSubmit() {
     if (this.id) {
       this.jobService.patch(this.id, this.job).then(response => {
-        console.log('Job Created');
+        console.log('Job Updated');
         this.router.navigate(['']);
       });
     } else {
