@@ -1,21 +1,27 @@
-<div>
+<div style="padding: 30px;">
   <form (ngSubmit)="onSubmit()">
     <div>
       {{ job.id }}
     </div>
-    <div>
+    <div style="padding: 10px 0px;">
       <label for="title">Job Title</label>
-      <input type="text" [(ngModel)]="job.title" name="title" />
+      <input style="display: block; width: 50%;" type="text" [(ngModel)]="job.title" name="title" />
     </div>
-    <div>
+
+    <div style="padding: 10px 0px;">
       <label for="description">Job Description</label>
-      <textarea
+      <textarea style="display: block;"
         type="text"
         [(ngModel)]="job.description"
         name="description"
+        cols="100"
+        rows="10"
       ></textarea>
     </div>
-    <button>Submit</button>
-    <button type="button" [routerLink]="['']">Back</button>
+
+    <div style="padding: 10px 0px;">
+        <button>Submit</button>
+        <button type="button" [routerLink]="['']">Back</button>    
+    </div>
   </form>
 </div>
