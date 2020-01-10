@@ -13,6 +13,7 @@ export class JobFormComponent implements OnInit {
   id: string;
   jobService: Service<JobModel>;
   job: JobModel;
+
   constructor(
     private router: Router,
     private feathersService: FeathersService,
