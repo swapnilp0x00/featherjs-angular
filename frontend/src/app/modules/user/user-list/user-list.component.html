@@ -1,1 +1,35 @@
-<p>user-list works!</p>
+<div style="text-align: center">
+        <h2>User List</h2>
+      </div>
+      
+      <div style="padding: 20px 0px;">
+        <button type="button" [routerLink]="['create']">Create User</button>
+      </div>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Rate</th>
+            <th>DOB</th>
+            <th>Edit</th>            
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList$ | async">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.gender }}</td>
+            <td>{{ user.rate_per_hour }}</td>
+            <td>{{ user.dob | date: 'MM/dd/yy' }}</td>
+            <td><button type="button" [routerLink]="[user.id]">Edit</button></td>
+            <td><button type="button" (click)="deleteUser(user)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+      
