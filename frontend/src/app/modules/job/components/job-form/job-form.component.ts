@@ -12,16 +12,18 @@ import { JobModel } from '../job-list/job-list.component';
 export class JobFormComponent implements OnInit {
   id: string;
   jobService: Service<JobModel>;
-  job: JobModel = {
-    title: '',
-    description: '',
-  };
+  job: JobModel;
   constructor(
+    private router: Router,
     private feathersService: FeathersService,
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.job = {
+      title: '',
+      description: '',
+    };
     this.id = this.activatedRoute.snapshot.params.id;
     this.jobService = this.feathersService.createService<JobModel>('job');
     if (this.id) {
@@ -31,8 +33,20 @@ export class JobFormComponent implements OnInit {
     }
   }
 
+
+
   onSubmit() {
-    console.log('a');
+    if (this.id) {
+      this.jobService.patch(this.id, this.job).then(response => {
+        console.log('Job Created');
+        this.router.navigate(['']);
+      });
+    } else {
+      this.jobService.create(this.job).then(response => {
+        console.log('Job Created');
+        this.router.navigate(['']);
+      });
+    }
   }
 
 }

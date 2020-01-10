@@ -1,15 +1,21 @@
-
-
-<form (ngSubmit)="onSubmit()">
+<div>
+  <form (ngSubmit)="onSubmit()">
     <div>
-        {{job.id}}
+      {{ job.id }}
     </div>
     <div>
-        <input type="text" [(ngModel)]="job.title" name="title"/>
+      <label for="title">Job Title</label>
+      <input type="text" [(ngModel)]="job.title" name="title" />
     </div>
     <div>
-        <textarea type="text" [(ngModel)]="job.description" name="description"></textarea>
+      <label for="description">Job Description</label>
+      <textarea
+        type="text"
+        [(ngModel)]="job.description"
+        name="description"
+      ></textarea>
     </div>
     <button>Submit</button>
     <button type="button" [routerLink]="['']">Back</button>
-</form>
+  </form>
+</div>

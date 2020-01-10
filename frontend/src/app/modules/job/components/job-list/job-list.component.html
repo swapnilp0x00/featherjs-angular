@@ -1,27 +1,28 @@
+<div>
+  <button type="button" [routerLink]="['create']">Create Job</button>
+</div>
 
-
-<button type="button" [routerLink]="['create']"> Create Job</button>
 <table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Created At</th>
-            <th>Updated At</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let job of (jobList$ | async)">
-            <td>{{job.id}}</td>
-            <td>{{job.title}}</td>
-            <td>{{job.description}}</td>
-            <td>{{job.createdAt | date: 'm/d/yy'}}</td>
-            <td>{{job.updatedAt | date: 'm/d/yy'}}</td>
-            <td><button type="button" [routerLink]="[job.id]">Edit</button></td>
-            <td><button type="button" (click)="deleteJob(job)">Delete</button></td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Created At</th>
+      <th>Updated At</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let job of jobList$ | async">
+      <td>{{ job.id }}</td>
+      <td>{{ job.title }}</td>
+      <td>{{ job.description }}</td>
+      <td>{{ job.createdAt | date: "MM/dd/yy" }}</td>
+      <td>{{ job.updatedAt | date: "MM/dd/yy" }}</td>
+      <td><button type="button" [routerLink]="[job.id]">Edit</button></td>
+      <td><button type="button" (click)="deleteJob(job)">Delete</button></td>
+    </tr>
+  </tbody>
 </table>
