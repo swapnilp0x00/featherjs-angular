@@ -2,12 +2,12 @@
         <h2>User List</h2>
       </div>
       
-      <div style="padding: 20px 0px;">
-        <button type="button" [routerLink]="['create']">Create User</button>
-        <button type="button" [routerLink]="['/jobs']">Jobs</button>
+      <div class="row" style="padding: 20px 0px;">
+        <button mat-raised-button color="primary" type="button" [routerLink]="['create']">Create User</button>
+        <button mat-raised-button color="primary" type="button" [routerLink]="['/jobs']">Jobs</button>
       </div>
       
-      <table>
+      <table mat-table class="mat-elevation-z8">
         <thead>
           <tr>
             <th>ID</th>
@@ -28,8 +28,8 @@
             <td>{{ user.status }}</td>
             <td>{{ user.hourlyRate }}</td>
             <td>{{ user.dateOfBirth | date: 'MM/dd/yy' }}</td>
-            <td><button type="button" [routerLink]="[user.id]">Edit</button></td>
-            <td><button type="button" (click)="deleteUser(user)">Delete</button></td>
+            <td><button mat-raised-button color="accent"type="button" [routerLink]="[user.id]">Edit</button></td>
+            <td><button mat-raised-button color="warn"type="button" (click)="deleteUser(user)">Delete</button></td>
           </tr>
         </tbody>
       </table>
