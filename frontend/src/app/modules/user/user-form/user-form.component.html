@@ -1,0 +1,45 @@
+<div style="padding: 30px;">
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        {{ user.id }}
+      </div>
+      <div style="padding: 10px 0px;">
+        <label for="title">User Name</label>
+        <input style="display: block; width: 50%;" type="text" [(ngModel)]="user.name" name="name" />
+      </div>
+  
+      <div style="padding: 10px 0px;">
+        <label for="description">User Email</label>
+        <input style="display: block;"
+          type="text"
+          [(ngModel)]="user.email"
+          name="email"
+        />
+      </div>
+
+      <div style="padding: 10px 0px;">
+        <label for="description">DOB</label>
+        <input style="display: block;"
+          type="text"
+          [(ngModel)]="user.dateOfBirth"
+          name="dateOfBirth"
+        />
+      </div>
+
+      <div style="padding: 10px 0px;">
+        <label for="description">Status</label>
+        <input style="display: block;"
+          type="text"
+          [(ngModel)]="user.status"
+          name="status"
+        />
+      </div>
+
+  
+      <div style="padding: 10px 0px;">
+          <button>Submit</button>
+          <button type="button" [routerLink]="['']">Back</button>    
+      </div>
+    </form>
+  </div>
+  

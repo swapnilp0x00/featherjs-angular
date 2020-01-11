@@ -7,10 +7,11 @@ import { map } from 'rxjs/operators';
 export interface UserModel {
   id?: number;
   name: string;
-  dob: string;
-  email: string;
-  gender: number;
-  rate_per_hour: number;
+  dateOfBirth?: string;
+  email?: string;
+  gender?: number;
+  rate_per_hour?: number;
+  status?: number;
 }
 @Component({
   selector: 'app-user-list',
