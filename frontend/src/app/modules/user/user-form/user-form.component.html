@@ -11,13 +11,13 @@
         <input placeholder="User Name" matInput type="text" [(ngModel)]="user.name" name="name" required>
       </mat-form-field>
       <mat-form-field>
-        <input placeholder="User Email" matInput type="text" [(ngModel)]="user.email" name="email" required>
+        <input placeholder="User Email" matInput type="email" [(ngModel)]="user.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
       </mat-form-field>
       <mat-form-field>
         <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" [(ngModel)]="user.dateOfBirth"
-          name="dateOfBirth" required (focus)="picker.open()">
+          name="dateOfBirth" required (click)="picker.open()" disabled>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker disabled="false"></mat-datepicker>
+        <mat-datepicker #picker disabled="false" style="float: left;"></mat-datepicker>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Gender</mat-label>
