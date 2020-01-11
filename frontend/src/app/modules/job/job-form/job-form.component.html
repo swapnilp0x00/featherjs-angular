@@ -3,20 +3,20 @@
 </div>
 
 <div style="padding: 10%;">
-  <form class="form" (ngSubmit)="onSubmit()">
+  <form #f="ngForm" class="form" (ngSubmit)="onSubmit()">
 
     <div class="container">
       <mat-form-field>
-        <input placeholder="Job Title" matInput type="text" [(ngModel)]="job.title" name="title">
+        <input placeholder="Job Title" matInput type="text" [(ngModel)]="job.title" name="title" required>
       </mat-form-field>
 
       <mat-form-field>
-        <textarea placeholder="Job Description" matInput [(ngModel)]="job.description" name="description"></textarea>
+        <textarea placeholder="Job Description" matInput [(ngModel)]="job.description" name="description" required></textarea>
       </mat-form-field>
     </div>
     
     <div class="row" style="padding: 10px 0px;">
-      <button mat-raised-button color="primary">Submit</button>
+      <button mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
       <button mat-raised-button color="primary" type="button" [routerLink]="['']">Back</button>
     </div>
   </form>
