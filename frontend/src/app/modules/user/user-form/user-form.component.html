@@ -14,10 +14,14 @@
         <input placeholder="User Email" matInput type="text" [(ngModel)]="user.email" name="email">
       </mat-form-field>
       <mat-form-field>
-        <input placeholder="Date Of Birth" matInput type="text" [(ngModel)]="user.dateOfBirth" name="dateOfBirth">
+        <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" [(ngModel)]="user.dateOfBirth"
+          name="dateOfBirth" disabled>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker disabled="false"></mat-datepicker>
       </mat-form-field>
       <mat-form-field>
-        <mat-select matNativeControl required [(ngModel)]="user.status" name="gender">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="user.status" name="gender">
           <mat-option value="male">male</mat-option>
           <mat-option value="female">female</mat-option>
           <mat-option value="other">other</mat-option>
@@ -30,7 +34,7 @@
 
     <div class="row" style="padding: 10px 0px;">
       <button mat-raised-button color="primary">Submit</button>
-      <button mat-raised-button color="primary" type="button" [routerLink]="['']">Back</button>
+      <button mat-raised-button color="primary" type="button" [routerLink]="['/users']">Back</button>
     </div>
   </form>
 </div>
