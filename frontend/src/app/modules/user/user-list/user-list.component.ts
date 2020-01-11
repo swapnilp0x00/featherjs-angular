@@ -10,7 +10,7 @@ export interface UserModel {
   dateOfBirth: string;
   email: string;
   hourlyRate?: number;
-  status: number;
+  status?: string;
 }
 @Component({
   selector: 'app-user-list',

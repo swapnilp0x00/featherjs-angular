@@ -23,7 +23,7 @@ export class UserFormComponent implements OnInit {
   ngOnInit() {
     this.user = {
       dateOfBirth: '',
-      status: 1,
+      status: '',
       email: '',
     };
     this.id = this.activatedRoute.snapshot.params.id;
