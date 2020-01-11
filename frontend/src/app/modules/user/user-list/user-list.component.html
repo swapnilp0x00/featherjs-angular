@@ -1,36 +1,85 @@
 <div style="text-align: center">
-        <h2>User List</h2>
-      </div>
-      
-      <div class="row" style="padding: 20px 0px;">
-        <button mat-raised-button color="primary" type="button" [routerLink]="['create']">Create User</button>
-        <button mat-raised-button color="primary" type="button" [routerLink]="['/jobs']">Jobs</button>
-      </div>
-      
-      <table mat-table class="mat-elevation-z8">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Rate</th>
-            <th>DOB</th>
-            <th>Edit</th>            
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of userList$ | async">
-            <td>{{ user.id }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.status }}</td>
-            <td>{{ user.hourlyRate }}</td>
-            <td>{{ user.dateOfBirth | date: 'MM/dd/yy' }}</td>
-            <td><button mat-raised-button color="accent"type="button" [routerLink]="[user.id]">Edit</button></td>
-            <td><button mat-raised-button color="warn"type="button" (click)="deleteUser(user)">Delete</button></td>
-          </tr>
-        </tbody>
-      </table>
-      
+  <h2>User List</h2>
+</div>
+
+<div class="row" style="padding: 20px 0px;">
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    [routerLink]="['create']"
+  >
+    Create User
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    type="button"
+    [routerLink]="['/jobs']"
+  >
+    Jobs
+  </button>
+</div>
+
+<table mat-table [dataSource]="userList$" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="dateOfBirth">
+    <th mat-header-cell *matHeaderCellDef>DOB</th>
+    <td mat-cell *matCellDef="let element">{{ element.dateOfBirth | date: 'MM/dd/yy' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef>Gender</th>
+    <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="hourlyRate">
+    <th mat-header-cell *matHeaderCellDef>Rate</th>
+    <td mat-cell *matCellDef="let element">{{ element.hourlyRate }}</td>
+  </ng-container>  
+  
+  
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef>Edit</th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        mat-raised-button
+        color="accent"
+        type="button"
+        [routerLink]="[element.id]"
+      >
+        Edit
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef>Delete</th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        (click)="deleteJob(element)"
+      >
+        Delete
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

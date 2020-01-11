@@ -18,7 +18,7 @@ export interface UserModel {
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-
+  displayedColumns = ['id', 'name', 'email', 'dateOfBirth', 'gender', 'hourlyRate' , 'edit', 'delete'];
   userList$: Observable<any>;
   userService: Service<UserModel>;
 
