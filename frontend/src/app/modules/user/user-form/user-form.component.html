@@ -1,59 +1,36 @@
 <div style="text-align: center">
-    <h2>Create User</h2>
+  <h2>Create User</h2>
 </div>
 
 
-<div style="padding: 30px;">
-    <form (ngSubmit)="onSubmit()">
-      <div>
-        {{ user.id }}
-      </div>
-      <div style="padding: 10px 0px;">
-        <label for="title">User Name</label>
-        <input style="display: block; width: 50%;" type="text" [(ngModel)]="user.name" name="name" />
-      </div>
-  
-      <div style="padding: 10px 0px;">
-        <label for="description">User Email</label>
-        <input style="display: block;"
-          type="text"
-          [(ngModel)]="user.email"
-          name="email"
-        />
-      </div>
+<div style="padding: 10%;">
+  <form class="form" (ngSubmit)="onSubmit()">
 
-      <div style="padding: 10px 0px;">
-        <label for="description">DOB</label>
-        <input style="display: block;"
-          type="text"
-          [(ngModel)]="user.dateOfBirth"
-          name="dateOfBirth"
-        />
-      </div>
+    <div class="container">
+      <mat-form-field>
+        <input placeholder="User Name" matInput type="text" [(ngModel)]="user.name" name="name">
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="User Email" matInput type="text" [(ngModel)]="user.email" name="email">
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="Date Of Birth" matInput type="text" [(ngModel)]="user.dateOfBirth" name="dateOfBirth">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select matNativeControl required [(ngModel)]="user.status" name="gender">
+          <mat-option value="male">male</mat-option>
+          <mat-option value="female">female</mat-option>
+          <mat-option value="other">other</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input placeholder="Hourly Rate" matInput type="number" [(ngModel)]="user.hourlyRate" name="hourlyRate">
+      </mat-form-field>
+    </div>
 
-      <div style="padding: 10px 0px;">
-        <label for="description">Gender</label>
-        <input style="display: block;"
-          type="text"
-          [(ngModel)]="user.status"
-          name="status"
-        />
-      </div>
-
-      <div style="padding: 10px 0px;">
-        <label for="description">Rate</label>
-        <input style="display: block;"
-          type="text"
-          [(ngModel)]="user.hourlyRate"
-          name="hourlyRate"
-        />
-      </div>
-
-  
-      <div class="row" style="padding: 10px 0px;">
-          <button mat-raised-button color="primary">Submit</button>
-          <button mat-raised-button color="primary" type="button" [routerLink]="['']">Back</button>    
-      </div>
-    </form>
-  </div>
-  
+    <div class="row" style="padding: 10px 0px;">
+      <button mat-raised-button color="primary">Submit</button>
+      <button mat-raised-button color="primary" type="button" [routerLink]="['']">Back</button>
+    </div>
+  </form>
+</div>
