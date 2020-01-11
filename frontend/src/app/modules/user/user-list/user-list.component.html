@@ -4,6 +4,7 @@
       
       <div style="padding: 20px 0px;">
         <button type="button" [routerLink]="['create']">Create User</button>
+        <button type="button" [routerLink]="['/jobs']">Jobs</button>
       </div>
       
       <table>
@@ -24,8 +25,8 @@
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
-            <td>{{ user.gender }}</td>
-            <td>{{ user.rate_per_hour }}</td>
+            <td>{{ user.status }}</td>
+            <td>{{ user.hourlyRate }}</td>
             <td>{{ user.dateOfBirth | date: 'MM/dd/yy' }}</td>
             <td><button type="button" [routerLink]="[user.id]">Edit</button></td>
             <td><button type="button" (click)="deleteUser(user)">Delete</button></td>

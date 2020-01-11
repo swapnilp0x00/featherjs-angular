@@ -1,3 +1,8 @@
+<div style="text-align: center">
+    <h2>Create User</h2>
+</div>
+
+
 <div style="padding: 30px;">
     <form (ngSubmit)="onSubmit()">
       <div>
@@ -27,11 +32,20 @@
       </div>
 
       <div style="padding: 10px 0px;">
-        <label for="description">Status</label>
+        <label for="description">Gender</label>
         <input style="display: block;"
           type="text"
           [(ngModel)]="user.status"
           name="status"
+        />
+      </div>
+
+      <div style="padding: 10px 0px;">
+        <label for="description">Rate</label>
+        <input style="display: block;"
+          type="text"
+          [(ngModel)]="user.hourlyRate"
+          name="hourlyRate"
         />
       </div>
 

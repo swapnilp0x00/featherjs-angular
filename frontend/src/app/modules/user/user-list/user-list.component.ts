@@ -6,12 +6,11 @@ import { map } from 'rxjs/operators';
 
 export interface UserModel {
   id?: number;
-  name: string;
-  dateOfBirth?: string;
-  email?: string;
-  gender?: number;
-  rate_per_hour?: number;
-  status?: number;
+  name?: string;
+  dateOfBirth: string;
+  email: string;
+  hourlyRate?: number;
+  status: number;
 }
 @Component({
   selector: 'app-user-list',
@@ -42,15 +41,15 @@ export class UserListComponent implements OnInit {
   }
 
   /**
-   * deleteJob - Asks for delete confirmation and then deletes job after confirmation.
-   * @param job - job to be deleted.
+   * deleteUser - Asks for delete confirmation and then deletes user after confirmation.
+   * @param user - user to be deleted.
    */
   deleteUser(user: UserModel) {
     const response = confirm('Are you sure you want to delete this');
     if (response) {
       this.userService.remove(user.id).then(() => {
         this.fetchAll();
-        console.log('%c Job Deleted', 'font-size:20px;font-weight:bold');
+        console.log('%c User Deleted', 'font-size:20px;font-weight:bold');
       }).catch(error => {
         console.log('%c Error', 'color:red;font-size:20px;font-weight:bold');
       });

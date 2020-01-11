@@ -42,12 +42,12 @@ export class JobFormComponent implements OnInit {
     if (this.id) {
       this.jobService.patch(this.id, this.job).then(response => {
         console.log('Job Updated');
-        this.router.navigate(['']);
+        this.router.navigate(['/jobs']);
       });
     } else {
       this.jobService.create(this.job).then(response => {
         console.log('Job Created');
-        this.router.navigate(['']);
+        this.router.navigate(['/jobs']);
       });
     }
   }

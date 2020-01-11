@@ -22,8 +22,9 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {
     this.user = {
-      name: '',
-
+      dateOfBirth: '',
+      status: 1,
+      email: '',
     };
     this.id = this.activatedRoute.snapshot.params.id;
     this.userService = this.feathersService.createService<UserModel>('user');
@@ -42,12 +43,12 @@ export class UserFormComponent implements OnInit {
     if (this.id) {
       this.userService.patch(this.id, this.user).then(response => {
         console.log('User Updated');
-        this.router.navigate(['']);
+        this.router.navigate(['/users']);
       });
     } else {
       this.userService.create(this.user).then(response => {
         console.log('User Created');
-        this.router.navigate(['']);
+        this.router.navigate(['/users']);
       });
     }
   }
