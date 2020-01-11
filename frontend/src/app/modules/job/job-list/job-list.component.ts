@@ -15,7 +15,7 @@ export interface JobModel {
   styleUrls: ['./job-list.component.scss']
 })
 export class JobListComponent implements OnInit {
-
+  displayedColumns = ['id', 'title', 'description', 'edit', 'delete'];
   jobList$: Observable<any>;
   jobService: Service<JobModel>;
 
